@@ -1,9 +1,7 @@
-*NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
 
+# Operationalizing Machine Learning
 
-# Your Project Title Here
-
-*TODO:* Write an overview to your project.
+In this project we use the Bank Marketing dataset to train machine learning models on AzureML for a classification task. Two approaches are used to operationalize: one is an AutoML run and the other is a pipeline run. The model with the highest accuracy rate is deployed as an endpoint as an Azure Container Instance (ACI). Through the ACI, the REST endpoint with authentication is used to access the model via API documentation enabled by Swagger.
 
 ## Architectural Diagram
 *TODO*: Provide an architectual diagram of the project and give an introduction of each step.
