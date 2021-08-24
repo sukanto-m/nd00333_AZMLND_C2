@@ -60,3 +60,7 @@ As the diagram shows, the dataset is loaded into the AutoML run as well as the p
 
 
 Link to screencast: https://www.youtube.com/watch?v=zfPPQMXPEbs&ab_channel=SukantoMukherjee
+
+# Suggestions on improving the project
+
+The dataset shows a class imbalance during the run so that can be addressed by better sampling, since a model performs only as well as its data. Metrics other than accuracy can also be used to improve the model performance.
