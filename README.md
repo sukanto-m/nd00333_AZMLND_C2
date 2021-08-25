@@ -8,27 +8,40 @@ In this project we use the Bank Marketing dataset to train machine learning mode
 
 As the diagram shows, the dataset is loaded into the AutoML run as well as the pipeline through the Jupyter notebook as a registered dataset. It is then trained and deployed manually on the AutoML run and the same process is automated via the Python SDK in the Jupyter notebook. The pipeline enables us to automate the AutoML runs on a compute cluster and outputs a best model as well as a pipeline endpoint. The best model then gets deployed as an ACI endpoint. From our endpoint, we get API Documentation via Swagger, logging via Application Insight. At the end, users interact with our model through either the pipeline endpoint, or the ACI. They also interact with the API, logs, and performance metrics.
 
-## Key Steps
-*TODO*: Write a short discription of the key steps. Remeber to include all the screencasts required to demonstrate key steps. 
+## Key Steps 
 
-1. Ensure dataset is registered.
+## 1. Upload and Register Dataset 
+The first step is to upload the [Bank Marketing dataset](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) and register it on the ML Studio
 
-![dataset](https://github.com/sukanto-m/nd00333_AZMLND_C2/blob/master/Images/Screenshot%202021-08-15%20at%205.47.27%20PM.png)
+![dataset](https://github.com/sukanto-m/nd00333_AZMLND_C2/blob/master/new_images/Screenshot%202021-08-25%20at%207.47.06%20AM.png)
 
-2. AutoML run on compute cluster
 
-![run](https://github.com/sukanto-m/nd00333_AZMLND_C2/blob/master/Images/Screenshot%202021-08-22%20at%206.02.33%20PM.png)
+## 2. AutoML run on compute cluster
 
-3. Best performing model
+In the next step, the automated ML run is initiated by configuring a compute cluster and selecting the uploaded dataset for the experiment. The completed experiment goes through some iterations and outputs a best model.
 
-![model](https://github.com/sukanto-m/nd00333_AZMLND_C2/blob/master/Images/Screenshot%202021-08-21%20at%204.59.19%20PM.png)
+![run](https://github.com/sukanto-m/nd00333_AZMLND_C2/blob/master/new_images/Screenshot%202021-08-25%20at%208.19.46%20AM.png)
 
-4. Deploy the best model
-![deploy](https://github.com/sukanto-m/nd00333_AZMLND_C2/blob/master/Images/Screenshot%202021-08-22%20at%206.43.38%20PM.png)
+## 3. Best performing model
 
-5. Enable logging and view logs
+The best model is a collection of classifiers - Voting Ensemble - with an accuracy of nearly 92%.
 
-![logs](https://github.com/sukanto-m/nd00333_AZMLND_C2/blob/master/Images/Screenshot%202021-08-22%20at%206.41.52%20PM.png)
+![model](https://github.com/sukanto-m/nd00333_AZMLND_C2/blob/master/new_images/Screenshot%202021-08-25%20at%208.35.46%20AM.png)
+
+## 4. Deploy the best model
+
+We now proceed to deploy the best model as an Azure Container Instance with authentication enabled.
+
+![deploy](https://github.com/sukanto-m/nd00333_AZMLND_C2/blob/master/new_images/Screenshot%202021-08-25%20at%209.07.37%20AM.png)
+
+
+## 5. Enable logging and view logs
+
+The deployed model is updated to enable logging of application insights. The logs can be viewed by running the logs.py script.
+
+![logs](https://github.com/sukanto-m/nd00333_AZMLND_C2/blob/master/new_images/Screenshot%202021-08-25%20at%209.07.47%20AM.png)
+![logging](https://github.com/sukanto-m/nd00333_AZMLND_C2/blob/master/new_images/Screenshot%202021-08-25%20at%209.32.21%20AM.png)
+
 
 6. API of deployed model via Swagger and consuming the API via JSON input and output
 
